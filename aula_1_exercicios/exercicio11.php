@@ -8,15 +8,34 @@
 <body>
     <form method="POST" action="">
         <label for="numero1">Digite o primeiro número:</label>
-        <input type="number" id="numero1" name="numero1" required>
+        <input type="text" id="palavra_analisada" name="palavra_analisada" required>
+        <strong></strong>
+
 
         <br>
 
         
-        <button type="submit" name="fibonacci">gerar fibonacci</button>
+        <button type="submit" name="palavra_analisaada">Verificar palindrosagem</button>
     </form>
     <?php
+     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['palavra_analisada'])) {
+            
+            $palavrinhazada = $_POST['palavra_analisada'];
+            $adazahnirvalap = strrev($palavrinhazada);
+
+
+          if($palavrinhazada != $adazahnirvalap){
+            echo "<p>Sua <strong>$palavrinhazada</strong> palavra não é um palindromool <strong>$adazahnirvalap</strong></p>";
+        }
+        else{
+            echo "<p><strong>$palavrinhazada</strong> é um palindromo e seu palindromo é <strong>$adazahnirvalap</strong></p>";
+          }
+
+
     
+        }
+    }
     ?>
 </body>
 </html>
